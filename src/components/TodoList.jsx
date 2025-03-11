@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function TodoList() {
 
-    const [task, setTask] = useState(["Cook Dinner","Study code", "play games"]);
+    const [task, setTask] = useState(["Paint a Portrait","Study code","Prep Dinner" ,"Play Videogames", "Do SBA 320H"]);
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event) {  // event would be the click, any btn event
@@ -12,20 +12,37 @@ function TodoList() {
     } 
 
     function addTask() {
-        
-    }
+
+        if(newTask.trim() !== "") {
+            setTask(t => [...task, newTask]);
+             setNewTask("");
+        }    
+    };
 
     function deteleTask(index) {   // index parameter targets the propmt task
-
+        const updatedTask = task.filter((element, i) => i !== index);
+        setTask(updatedTask);
     } 
 
     function moveTaskUp(index) {
 
+        if(index > 0){
+            const updatedTask = [...task];
+            [updatedTask[index], updatedTask[index - 1]] =
+            [updatedTask[index - 1], updatedTask[index]];
+            setTask(updatedTask);
+        }
     }
 
 
     function moveTaskDown(index) {
-
+        
+        if(index < task.length - 1){
+            const updatedTask = [...task];
+            [updatedTask[index], updatedTask[index + 1]] =
+            [updatedTask[index + 1], updatedTask[index]];
+            setTask(updatedTask);
+        }
     }
 
     return (
