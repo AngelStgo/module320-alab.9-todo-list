@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function TodoList() {
 
-    const [task, setTask] = useState(["Cook Dinner","Study code"]);
+    const [task, setTask] = useState(["Cook Dinner","Study code", "play games"]);
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event) {  // event would be the click, any btn event

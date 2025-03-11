@@ -1,15 +1,81 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  background-color: lightslategrey;
 }
 
+.todo-list {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+h1 {
+  font-size: 4rem;
+}
+
+button {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5 ease;
+  transition: box-shadow 0.5 ease;
+}
+
+.add-button {
+  background-color: chartreuse;
+}
+.add-button:hover {
+  background-color: rgb(91, 181, 0);
+}
+
+.delete-button {
+  background-color: rgb(147, 0, 0);
+}
+.delete-button:hover {
+  background-color: rgb(95, 0, 0);
+}
+
+.moveTaskUp-button {
+  background-color: rgb(0, 140, 255);
+}
+.moveTaskUp-button:hover {
+  background-color: rgb(0, 59, 108);
+}
+
+.moveTaskDown-button {
+  background-color: rgb(120, 0, 195);
+}
+.moveTaskDown-button:hover {
+  background-color: rgb(68, 0, 110);
+}
+
+input[type="text"] {
+  font-size: 1.6rem;
+
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: white;
+  margin-bottom: 10px;
+  border:  3px solid whitesmoke;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+}
+
+.delete-buttom, .moveTask-buttom {
+  padding: ;
+}
