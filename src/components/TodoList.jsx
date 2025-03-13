@@ -1,6 +1,6 @@
 //* In our TodoList we want to list our functions needed for our app , ex: add btn, delete, edit, etc.
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function TodoList() {
     //is a good practice to store the tasks as objects with text instead of just strings
@@ -8,11 +8,24 @@ function TodoList() {
         {text: "Paint a Portrait", completed: false, isEditing: false },
         {text: "Study code", completed: false, isEditing: false },
         {text: "Prep Dinner", completed: false, isEditing: false },
-        {text: "Play Videogames", completed: false, isEditing: false }, 
         {text: "Do SBA 320H", completed: false, isEditing: false },
     ]);
 
     const [newTask, setNewTask] = useState("");
+
+        //to local storage the ToDos
+        //! not working but also not affecting the code
+    useEffect(() => {
+        const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+        if (storedTasks) {
+            setTask(storedTasks);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(task));
+    }, [task]);
+    
 
     function handleInputChange(event) {  // event would be the click, any btn event
         setNewTask(event.target.value); 
@@ -51,7 +64,7 @@ function TodoList() {
 
     function moveTaskUp(index) {
 
-        // here this function will move up by 1 index the todo
+        // here this function will move up by 1 index the toDo
         if(index > 0){
             const updatedTask = [...task];
             [updatedTask[index], updatedTask[index - 1]] =
