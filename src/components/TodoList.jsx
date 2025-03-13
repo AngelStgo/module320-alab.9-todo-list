@@ -3,8 +3,15 @@
 import { useState } from "react";
 
 function TodoList() {
+    //is a good practice to store the tasks as objects with text instead of just strings
+    const [task, setTask] = useState([
+        {text: "Paint a Portrait", completed: false, isEditing: false },
+        {text: "Study code", completed: false, isEditing: false },
+        {text: "Prep Dinner", completed: false, isEditing: false },
+        {text: "Play Videogames", completed: false, isEditing: false }, 
+        {text: "Do SBA 320H", completed: false, isEditing: false },
+    ]);
 
-    const [task, setTask] = useState(["Paint a Portrait","Study code","Prep Dinner" ,"Play Videogames", "Do SBA 320H"]);
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event) {  // event would be the click, any btn event
@@ -14,7 +21,7 @@ function TodoList() {
     function addTask() {
 
         if(newTask.trim() !== "") {
-            setTask(t => [...task, newTask]);
+            setTask(t => [...t, {text: newTask, completed: false, isEditing: false}]);
              setNewTask("");
         }    
     };
