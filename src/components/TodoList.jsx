@@ -26,6 +26,7 @@ function TodoList() {
 
     function moveTaskUp(index) {
 
+        // here this function will move up by 1 index the todo
         if(index > 0){
             const updatedTask = [...task];
             [updatedTask[index], updatedTask[index - 1]] =
@@ -37,6 +38,7 @@ function TodoList() {
 
     function moveTaskDown(index) {
         
+        // here this function will move down by 1 index the todo
         if(index < task.length - 1){
             const updatedTask = [...task];
             [updatedTask[index], updatedTask[index + 1]] =
