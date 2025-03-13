@@ -26,6 +26,24 @@ function TodoList() {
         }    
     };
 
+    function completedTask(index) {
+        const updatedTask = [...task];
+        updatedTask[index].completed = !updatedTask[index].completed;
+        setTask(updatedTask);
+    }
+
+    function editTask(index) {
+        const updatedTask = [...task];
+        updatedTask[index].isEditing = !updatedTask[index].isEditing;
+        setTask(updatedTask);
+    }
+
+    function saveEditTask(index, value) {
+        const updatedTask = [...task];
+        updatedTask[index] = { ...updatedTask[index], text: value };
+        setTask(updatedTask);
+    }
+
     function deteleTask(index) {   // index parameter targets the propmt task
         const updatedTask = task.filter((element, i) => i !== index);
         setTask(updatedTask);
@@ -68,19 +86,39 @@ function TodoList() {
             onClick={addTask}>Add</button>
 
             <ol>
-                {task.map((task, index) =>
-                    <li key={index}>
-                        <span className="text">{task}</span>
-                        <button className="delete-button"
-                        onClick={() => deteleTask(index)}> Delete </button>
-
-                        <button className="moveTaskUp-button"
-                        onClick={() => moveTaskUp(index)}> Move Up </button> 
-
-                        <button className="moveTaskDown-button"
-                        onClick={() => moveTaskDown(index)}> Move Down </button> 
-                    </li>
+            {task.map((item, index) => (
+                <li key={index} style={{ textDecoration: item.completed ? "line-through" : "none" }}>
+                {item.isEditing ? (
+                    <input
+                    type="text"
+                    value={item.text}
+                    onChange={(e) => saveEditTask(index, e.target.value)}
+                    />
+                ) : (
+                    <span className="text">{item.text}</span>
                 )}
+                
+                <button className="complete-button" onClick={() => completedTask(index)}>
+                    {item.completed ? "Undo" : "Complete"}
+                </button>
+
+                <button className="edit-button" onClick={() => editTask(index)}>
+                    {item.isEditing ? "Save" : "Edit"}
+                </button>
+
+                <button className="delete-button" onClick={() => deteleTask(index)}>
+                    Delete
+                </button>
+
+                <button className="moveTaskUp-button" onClick={() => moveTaskUp(index)}>
+                    Move Up
+                </button>
+
+                <button className="moveTaskDown-button" onClick={() => moveTaskDown(index)}>
+                    Move Down
+                </button>
+                </li>
+            ))}
             </ol>
         </div>
     )

@@ -10,11 +10,11 @@ body {
 }
 h1 {
   font-size: 4rem;
-  color: rgb(203, 203, 203);
+  color: rgb(255, 255, 255);
 }
 
 button {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
   color: rgb(255, 255, 255);
@@ -26,10 +26,26 @@ button {
 }
 
 .add-button {
-  background-color: rgb(108, 216, 0);
+  background-color: rgb(186, 193, 3);
 }
 .add-button:hover {
+  background-color: rgb(181, 181, 0);
+  color: rgba(255, 255, 255, 0.554);
+}
+
+.complete-button {
+  background-color: rgb(108, 216, 0);
+}
+.complete-button:hover {
   background-color: rgb(91, 181, 0);
+  color: rgba(255, 255, 255, 0.554);
+}
+
+.edit-button {
+  background-color: rgb(216, 126, 0);
+}
+.edit-button:hover {
+  background-color: rgb(181, 112, 0);
   color: rgba(255, 255, 255, 0.554);
 }
 
@@ -71,12 +87,12 @@ ol {
 }
 
 li {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   padding: 15px;
-  background-color: white;
+  background-color: rgb(242, 242, 242);
   margin-bottom: 10px;
-  border:  3px solid whitesmoke;
+  border:  3px solid rgb(162, 162, 162);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -86,8 +102,3 @@ li {
   flex: 1;
 }
 
-.delete-buttom, .moveTask-buttom {
-  padding: 8px 12px;
-  font-size: 1.4rem;
-  margin-left: 10px;
-}
